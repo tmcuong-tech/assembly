@@ -40,6 +40,7 @@ assembly/
 |-- asm/                                           # Curated notes written for learning.
 |   |-- README.md                                  # Short index for the note set.
 |   |-- assembly_language_programing/              # Assembly language track. Folder name is kept as-is from the repo.
+|   |   |-- 00_introduction.md                      # Quick Assembly introduction and first Windows/Linux run commands.
 |   |   |-- 00_learning_path.md                    # Recommended order for learning Assembly.
 |   |   |-- 01_introduction.md                     # What Assembly is, tools, file extensions, OS differences, mnemonic meanings.
 |   |   |-- 02_syntax_program_structure.md         # Source layout, labels, sections, operands, comments.
@@ -127,10 +128,11 @@ Use this order if you are starting from zero:
 3. Read [asm/computer_architecture/03_bits_bytes_numbers.md](asm/computer_architecture/03_bits_bytes_numbers.md).
 4. Read [asm/computer_architecture/04_cpu.md](asm/computer_architecture/04_cpu.md).
 5. Read [asm/computer_architecture/06_memory_ram.md](asm/computer_architecture/06_memory_ram.md).
-6. Read [asm/assembly_language_programing/00_learning_path.md](asm/assembly_language_programing/00_learning_path.md).
-7. Read [asm/assembly_language_programing/01_introduction.md](asm/assembly_language_programing/01_introduction.md).
-8. Continue through the Assembly files from `02` to `12`.
-9. Go back to architecture topics such as cache, I/O, GPU, and OS support when the Assembly examples start mentioning them.
+6. Read [asm/assembly_language_programing/00_introduction.md](asm/assembly_language_programing/00_introduction.md).
+7. Read [asm/assembly_language_programing/00_learning_path.md](asm/assembly_language_programing/00_learning_path.md).
+8. Read [asm/assembly_language_programing/01_introduction.md](asm/assembly_language_programing/01_introduction.md).
+9. Continue through the Assembly files from `02` to `12`.
+10. Go back to architecture topics such as cache, I/O, GPU, and OS support when the Assembly examples start mentioning them.
 
 Good rhythm:
 
@@ -145,6 +147,7 @@ Good rhythm:
 
 | File | Purpose |
 | --- | --- |
+| [00_introduction.md](asm/assembly_language_programing/00_introduction.md) | Quick start, mental model, and first Windows/Linux run commands. |
 | [00_learning_path.md](asm/assembly_language_programing/00_learning_path.md) | Overall Assembly study order. |
 | [01_introduction.md](asm/assembly_language_programing/01_introduction.md) | Introduction, tool setup, file extensions, Windows/Linux run commands, mnemonic meanings. |
 | [02_syntax_program_structure.md](asm/assembly_language_programing/02_syntax_program_structure.md) | Basic NASM source structure. |
@@ -249,20 +252,22 @@ choco install mingw
 Linux raw syscall program:
 
 ```bash
-nasm -f elf64 hello.asm -o hello.o
-ld hello.o -o hello
-./hello
+nasm -f elf64 hello_linux.asm -o hello_linux.o
+ld hello_linux.o -o hello_linux
+./hello_linux
 ```
 
 Windows with NASM and MinGW-w64:
 
 ```powershell
-nasm -f win64 hello.asm -o hello.obj
-gcc hello.obj -o hello.exe
-.\hello.exe
+nasm -f win64 hello_windows.asm -o hello_windows.obj
+gcc hello_windows.obj -o hello_windows.exe
+.\hello_windows.exe
 ```
 
 Important: Linux and Windows Assembly examples are not automatically interchangeable. Linux uses ELF files and syscall numbers. Windows uses PE/COFF executables and normally calls WinAPI or C runtime functions.
+
+For complete starter examples, read [asm/assembly_language_programing/00_introduction.md](asm/assembly_language_programing/00_introduction.md).
 
 ## Naming Convention
 
